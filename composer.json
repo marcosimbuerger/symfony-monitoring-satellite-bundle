@@ -1,0 +1,24 @@
+{
+    "name": "marcosimbuerger/symfony-monitoring-satellite-bundle",
+    "type": "symfony-bundle",
+    "description": "Monitoring Satellite for Symfony",
+    "keywords": ["monitoring", "satellite", "symfony"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marco Simbürger",
+            "homepage": "https://github.com/marcosimbuerger",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.4",
+        "symfony/http-foundation": "^4.4|^5.0",
+        "symfony/http-kernel": "^4.4|^5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "MarcoSimbuerger\\MonitoringSatelliteBundle\\": "src/"
+        }
+    }
+}
