@@ -10,7 +10,7 @@ $ composer require marcosimbuerger/symfony-monitoring-satellite
 ```
 
 ### Enable the bundle
-Enable the bundle by adding it to the list of registered bundles in the `config/bundles.php` file of your project:
+Check your `config/bundles.php`. The MonitoringSatelliteBundle should have been added automatically. If not, add it manually.
 
 ```php
 // config/bundles.php
