@@ -3,6 +3,7 @@
     "type": "symfony-bundle",
     "description": "Monitoring Satellite for Symfony",
     "keywords": ["monitoring", "satellite", "symfony"],
+    "homepage": "https://github.com/marcosimbuerger/symfony-monitoring-satellite-bundle",
     "license": "MIT",
     "authors": [
         {
