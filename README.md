@@ -1,12 +1,12 @@
 # Monitoring Satellite for Symfony 🛰
 
-The Monitoring Satellite provides data about your app for the Monitoring Station.
+The Monitoring Satellite provides data about your Symfony application for the Monitoring Station.
 
 ## Installation
 
 ### Install the bundle
 ```bash
-$ composer require marcosimbuerger/symfony-monitoring-satellite
+$ composer require marcosimbuerger/symfony-monitoring-satellite-bundle
 ```
 
 ### Enable the bundle
@@ -24,7 +24,7 @@ return [
 ## Configuration
 
 ### Import the route
-Import the MonitoringSatelliteBundle's route in your application.
+Import the MonitoringSatelliteBundle's route in your Symfony application.
 
 ```yaml
 # config/routes.yaml
@@ -39,7 +39,7 @@ The `security.yml` file is where the basic security configuration for your appli
 
 For the _encoders_, define the `Symfony\Component\Security\Core\User\User` class. This internal class is used by Symfony to represent in-memory users.
 
-Under the _providers_ section, create a `monitoring_satellite_bundle` provider and configure an in-memory user with a password.
+Under the _providers_ section, create a `monitoring_satellite_auth_provider` provider and configure an in-memory user with a password.
 Use `bin/console security:encode-password` to generate the password hash.
 
 Define the authentication under the _firewall_ section. Add the pattern for the MonitoringSatelliteBundle's route and define the previous created provider for the basic authentication.
@@ -57,7 +57,7 @@ security:
             algorithm: auto
 
     providers:
-        monitoring_satellite_bundle:
+        monitoring_satellite_auth_provider:
             memory:
                 users:
                     # Define a user with password.
@@ -71,7 +71,7 @@ security:
         monitoring_satellite_controller:
             pattern: ^/monitoring-satellite/v1/get
             http_basic:
-                provider: monitoring_satellite_bundle
+                provider: monitoring_satellite_auth_provider
 
     access_control:
         - { path: ^/monitoring-satellite/v1/get, roles: ROLE_USER }
@@ -84,7 +84,7 @@ Call `/monitoring-satellite/v1/get`.
 It should be protected by basic authentication and return the app data after successful authentication.
 
 ## Add the Satellite to the Station
-Add this Monitoring Satellite to the Monitoring Station. See [documentation of Monitoring Satellite](https://github.com/marcosimbuerger/monitoring-station).
+Add this Monitoring Satellite to the Monitoring Station. See [documentation of the Monitoring Station](https://github.com/marcosimbuerger/monitoring-station).
 
 ## License
 This bundle is released under the MIT license. See the included [LICENSE](LICENSE) file for more information.
